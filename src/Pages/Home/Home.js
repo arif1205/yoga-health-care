@@ -1,7 +1,16 @@
 import React from "react";
+import Banner from "./Banner/Banner";
+import Instructor from "./Instructor/Instructor";
+import Goal from "./Goal/Goal";
 
 const Home = () => {
-	return <h1>Home</h1>;
+	return (
+		<>
+			<Banner />
+			<Instructor />
+			<Goal />
+		</>
+	);
 };
 
 export default Home;
