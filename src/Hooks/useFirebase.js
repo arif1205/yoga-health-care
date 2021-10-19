@@ -79,6 +79,9 @@ const useFirebase = () => {
 				setError(errorMessage);
 				setUser({});
 				setIsLoggedin(false);
+			})
+			.finally(() => {
+				window.location.reload();
 			});
 	};
 
