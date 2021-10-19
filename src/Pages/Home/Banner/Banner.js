@@ -1,4 +1,5 @@
 import React from "react";
+// styles images
 import { Wrapper } from "./Banner.styles";
 import banner from "../../../Images/banner.jpg";
 

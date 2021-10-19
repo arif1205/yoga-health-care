@@ -6,6 +6,7 @@ import Classes from "./Classes/Classes";
 import useScroll from "../Utilities/ScrollTop";
 
 const Home = () => {
+	// use scroll to scroll top when page rendered
 	useScroll();
 
 	return (

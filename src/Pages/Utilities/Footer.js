@@ -6,7 +6,7 @@ const Footer = () => {
 	return (
 		<Wrapper>
 			<div className='container'>
-				<div className='d-flex justify-content-between top-footer'>
+				<div className='d-flex justify-content-between flex-column flex-md-row top-footer'>
 					<div className='left-links'>
 						<ul className='list-unstyled d-flex flex-wrap'>
 							<li>

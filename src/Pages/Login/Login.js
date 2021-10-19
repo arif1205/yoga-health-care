@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { Wrapper } from "./Login.styles";
-import useScrollTop from "../Utilities/ScrollTop";
 import useAuth from "../../Hooks/useAuth";
+import useScrollTop from "../Utilities/ScrollTop";
+// styles
+import { Form, Button, Alert } from "react-bootstrap";
+import { Wrapper } from "./Login.styles";
 
 const Login = () => {
 	const history = useHistory();
 	const location = useLocation();
-	const { setEmail, setPassword, login, signInWithGoogle, isLoggedin } =
+	const { setEmail, setPassword, login, signInWithGoogle, isLoggedin, error } =
 		useAuth();
 
 	const { from } = location.state || { from: { pathname: "/" } };
@@ -27,6 +28,11 @@ const Login = () => {
 	return (
 		<Wrapper className='d-flex justify-content-center align-items-center'>
 			<Form onSubmit={formOnSubmit}>
+				{error && (
+					<Alert variant='danger'>
+						<p>You got an error! Be careful.</p>
+					</Alert>
+				)}
 				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Emai: </Form.Label>
 					<Form.Control
@@ -36,7 +42,6 @@ const Login = () => {
 						onBlur={(e) => setEmail(e.target.value)}
 					/>
 				</Form.Group>
-
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Password: </Form.Label>
 					<Form.Control

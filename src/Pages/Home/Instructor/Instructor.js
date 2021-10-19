@@ -1,9 +1,11 @@
 import React from "react";
+// styles and images
 import { Grid, Wrapper, Col } from "./Instructor.styles";
 import instructor1 from "../../../Images/instructor1.jpg";
 import instructor2 from "../../../Images/instructor2.jpg";
 import instructor3 from "../../../Images/instructor3.jpg";
 
+// instructors data
 const instructors = [
 	{
 		name: "Amatta Sutra",

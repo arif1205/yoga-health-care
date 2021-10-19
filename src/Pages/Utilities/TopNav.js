@@ -1,8 +1,10 @@
 import React from "react";
-import useAuth from "../../Hooks/useAuth";
-import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+// styles
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { Wrapper } from "./TopNav.styles";
+// images
 import { ReactComponent as Logo } from "../../Images/byog.svg";
 import profile from "../../Images/profile.png";
 

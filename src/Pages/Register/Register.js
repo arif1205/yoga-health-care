@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { Wrapper } from "../Login/Login.styles";
-import useScrollTop from "../Utilities/ScrollTop";
+import { Form, Button, Alert } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
+// styles
+import { Wrapper } from "../Login/Login.styles";
+// component
+import useScrollTop from "../Utilities/ScrollTop";
 
 const Register = () => {
 	const history = useHistory();
@@ -15,6 +17,7 @@ const Register = () => {
 		register,
 		signInWithGoogle,
 		isLoggedin,
+		error,
 	} = useAuth();
 
 	const { from } = location.state || { from: { pathname: "/" } };
@@ -33,6 +36,11 @@ const Register = () => {
 	return (
 		<Wrapper className='d-flex justify-content-center align-items-center'>
 			<Form onSubmit={formOnSubmit}>
+				{error && (
+					<Alert variant='danger'>
+						<p>You got an error! Be careful.</p>
+					</Alert>
+				)}
 				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Name: </Form.Label>
 					<Form.Control

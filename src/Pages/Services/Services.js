@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import SectionBanner from "../Utilities/SectionBanner";
+import useScroll from "../Utilities/ScrollTop";
+//  styles and images
 import { Wrapper } from "./Services.styles";
 import { Grid, Col } from "../Home/Classes/Classes.styles";
-import SectionBanner from "../Utilities/SectionBanner";
 import bg from "../../Images/about-banner.jpg";
-import { Link } from "react-router-dom";
-import useScroll from "../Utilities/ScrollTop";
 
 const Services = () => {
 	const [data, setData] = useState([]);
 
+	// all data
 	useEffect(() => {
 		const loadData = async () => {
 			const result = await (await fetch("./services.json")).json();

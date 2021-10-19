@@ -1,4 +1,5 @@
 import React from "react";
+// styles and images
 import { Col, Row } from "react-bootstrap";
 import { Wrapper, ProgressBar } from "./Goal.styles";
 import sideImg from "../../../Images/about.jpg";
@@ -8,7 +9,7 @@ const Goal = () => {
 		<Wrapper>
 			<div className='container'>
 				<Row className='align-items-center'>
-					<Col md={6}>
+					<Col md={6} className='mb-5 mb-md-0'>
 						<div className='img'>
 							<img src={sideImg} alt='yoga' className='img-fluid' />
 						</div>

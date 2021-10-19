@@ -32,4 +32,15 @@ export const Wrapper = styled.header`
 			}
 		}
 	}
+
+	@media screen and (max-width: 575px) {
+		.header-text {
+			p {
+				font-size: 35px !important;
+			}
+			button {
+				width: 150px;
+			}
+		}
+	}
 `;

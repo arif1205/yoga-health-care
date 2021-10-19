@@ -25,11 +25,24 @@ const useFirebase = () => {
 	const googleProvider = new GoogleAuthProvider();
 	const auth = getAuth();
 
+	useEffect(() => {
+		onAuthStateChanged(auth, (result) => {
+			if (result) {
+				const uid = result.uid;
+				setUser({ name: result.displayName, id: uid });
+				setIsLoggedin(true);
+			} else {
+				setUser({});
+				setIsLoggedin(false);
+			}
+		});
+	}, []);
+
 	const signInWithGoogle = () => {
 		signInWithPopup(auth, googleProvider)
 			.then((result) => {
 				const user = result.user;
-				setUser({ name: user.displayName });
+				setUser({ name: user.displayName, id: user.uid });
 				setIsLoggedin(true);
 				setError("");
 			})
@@ -41,12 +54,13 @@ const useFirebase = () => {
 			});
 	};
 
+	// add name after new user created
 	const addName = () => {
 		updateProfile(auth.currentUser, {
 			displayName: name,
 		})
 			.then(() => {
-				setUser({ name: user?.displayName });
+				setUser({ name: user?.displayName, id: user?.uid });
 			})
 			.catch((error) => {});
 	};
@@ -56,7 +70,7 @@ const useFirebase = () => {
 			.then((userCredential) => {
 				const user = userCredential.user;
 				addName();
-				setUser({ name: user?.displayName });
+				setUser({ name: user?.displayName, id: user?.uid });
 				setIsLoggedin(true);
 				setError("");
 			})
@@ -72,7 +86,7 @@ const useFirebase = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;
-				setUser({ name: user?.displayName });
+				setUser({ name: user?.displayName, id: user.uid });
 				setIsLoggedin(true);
 				setError("");
 			})
@@ -93,14 +107,6 @@ const useFirebase = () => {
 			setPassword("");
 		});
 	};
-
-	useEffect(() => {
-		onAuthStateChanged(auth, (user) => {
-			if (user) {
-				setUser({ name: user?.displayName });
-			}
-		});
-	}, []);
 
 	return {
 		user,

@@ -5,6 +5,7 @@ import { Wrapper, Grid, Col } from "./Classes.styles";
 const Classes = () => {
 	const [data, setData] = useState([]);
 
+	// load services data and slices into 6
 	useEffect(() => {
 		const loadData = async () => {
 			const result = await (await fetch("./services.json")).json();

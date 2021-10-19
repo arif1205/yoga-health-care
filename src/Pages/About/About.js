@@ -1,9 +1,10 @@
 import React from "react";
 import SectionBanner from "../Utilities/SectionBanner";
+// styles and images
+import { Col, Row } from "react-bootstrap";
+import { Wrapper } from "./About.styles";
 import bg from "../../Images/yoga1.jpg";
 import whyUs from "../../Images/yoga2.jpg";
-import { Wrapper } from "./About.styles";
-import { Col, Row } from "react-bootstrap";
 
 const About = () => {
 	return (

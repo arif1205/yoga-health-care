@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SectionBanner from "../Utilities/SectionBanner";
-import bg from "../../Images/about-us-banner.jpg";
-import { Wrapper } from "./Service.styles";
 import useScroll from "../Utilities/ScrollTop";
+// styles and images
+import { Wrapper } from "./Service.styles";
+import bg from "../../Images/about-us-banner.jpg";
 
 const Service = () => {
 	const [data, setData] = useState({});
 	const { id } = useParams();
 
+	// single data with id
 	useEffect(() => {
 		const loadData = async () => {
 			const result = await (await fetch("../services.json")).json();

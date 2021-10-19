@@ -16,6 +16,14 @@ export const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 30px;
+
+	@media screen and (max-width: 767px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (max-width: 575px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
 `;
 
 export const Col = styled.div`
