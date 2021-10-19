@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from "../../Images/byog.svg";
 import profile from "../../Images/profile.png";
 
 const TopNav = () => {
-	const { isLoggedin } = useAuth();
+	const { isLoggedin, logout, user } = useAuth();
 
 	return (
 		<Navbar as={Wrapper} expand='lg' fixed='top'>
@@ -30,25 +30,24 @@ const TopNav = () => {
 						<Nav.Link as={Link} to='/teacher'>
 							Teacher
 						</Nav.Link>
-						<Nav.Link as={Link} to='/booking'>
-							Booking
-						</Nav.Link>
 
 						<Navbar.Text className='alter-profile d-block d-lg-none'>
 							{isLoggedin ? (
 								<>
 									<img src={profile} alt='profile' />
-									Signed in as: <span>Mark Otto</span>
-									<button className='logout btn btn-secondary ms-2'>
+									Signed in as: <span>{user?.name}</span>
+									<button
+										className='logout btn btn-secondary ms-2'
+										onClick={logout}>
 										Log out
 									</button>
 								</>
 							) : (
-								<>
+								<Link to='/login'>
 									<button className='btn btn-outline-primary login'>
 										Log in
 									</button>
-								</>
+								</Link>
 							)}
 						</Navbar.Text>
 					</Nav>
@@ -57,13 +56,17 @@ const TopNav = () => {
 					{isLoggedin ? (
 						<>
 							<img src={profile} alt='profile' />
-							Signed in as: <span>Mark Otto</span>
-							<button className='logout btn btn-secondary ms-2'>Log out</button>
+							Signed in as: <span>{user?.name}</span>
+							<button
+								className='logout btn btn-secondary ms-2'
+								onClick={logout}>
+								Log out
+							</button>
 						</>
 					) : (
-						<>
+						<Link to='/login'>
 							<button className='btn btn-outline-primary login'>Log in</button>
-						</>
+						</Link>
 					)}
 				</Navbar.Text>
 			</Container>

@@ -33,8 +33,8 @@ const Instructor = () => {
 		<Wrapper>
 			<div className='container'>
 				<Grid className='instructor-container'>
-					{instructors.map((instructor) => (
-						<Col className=' item'>
+					{instructors.map((instructor, i) => (
+						<Col className=' item' key={i}>
 							<div className='content text-center'>
 								<div className='profile'>
 									<img src={instructor.profile} alt='Profile' />

@@ -43,13 +43,12 @@ const useFirebase = () => {
 
 	const addName = () => {
 		updateProfile(auth.currentUser, {
-			name,
+			displayName: name,
 		})
-			.then(() => {})
-			.catch((error) => {
-				// An error occurred
-				// ...
-			});
+			.then(() => {
+				setUser({ name: user?.displayName });
+			})
+			.catch((error) => {});
 	};
 
 	const register = () => {
@@ -57,6 +56,7 @@ const useFirebase = () => {
 			.then((userCredential) => {
 				const user = userCredential.user;
 				addName();
+				setUser({ name: user?.displayName });
 				setIsLoggedin(true);
 				setError("");
 			})
@@ -97,7 +97,7 @@ const useFirebase = () => {
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				setUser({ name: user.displayName });
+				setUser({ name: user?.displayName });
 			}
 		});
 	}, []);

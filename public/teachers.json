@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Kate Monn",
+		"img": "https://i.ibb.co/KKPz3wN/teacher1.jpg",
+		"role": "Choreography, Nutritionist"
+	},
+	{
+		"name": "John Monn",
+		"img": "https://i.ibb.co/Sx32Vt5/teacher2.jpg",
+		"role": "Hatha Yoga, Yoga Cord"
+	},
+	{
+		"name": "Lisa Smith",
+		"img": "https://i.ibb.co/fpFSqwJ/teacher3.jpg",
+		"role": "Choreography, Hatha Yoga"
+	},
+	{
+		"name": "Anna Winds",
+		"img": "https://i.ibb.co/C9VymSq/teacher4.jpg",
+		"role": "Ashtanga Yoga, Choreography"
+	},
+	{
+		"name": "Dana Nightly",
+		"img": "https://i.ibb.co/gVgsr66/teacher5.jpg",
+		"role": "Ashtanga Yoga, Hatha Yoga, Yoga Cord"
+	},
+	{
+		"name": "Will Smith",
+		"img": "https://i.ibb.co/hH6xCQR/teacher6.jpg",
+		"role": "Ashtanga Yoga, Nutritionist"
+	}
+]

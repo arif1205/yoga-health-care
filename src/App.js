@@ -5,7 +5,6 @@ import Home from "./Pages/Home/Home";
 import Service from "./Pages/Service/Service";
 import Services from "./Pages/Services/Services";
 import NotFound from "./Pages/NotFound/NotFound";
-import Booking from "./Pages/Booking/Booking";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import TopNav from "./Pages/Utilities/TopNav";
@@ -23,17 +22,14 @@ function App() {
 					<Route exact path='/'>
 						<Home />
 					</Route>
-					<Route exact path='/about'>
+					<PrivateRoute exact path='/about'>
 						<About />
-					</Route>
+					</PrivateRoute>
 					<Route exact path='/services'>
 						<Services />
 					</Route>
 					<PrivateRoute exact path='/service/:id'>
 						<Service />
-					</PrivateRoute>
-					<PrivateRoute exact path='/booking'>
-						<Booking />
 					</PrivateRoute>
 					<PrivateRoute exact path='/teacher'>
 						<Teacher />
